@@ -26,8 +26,8 @@ class GetConfigWorker : Worker() {
 
     private fun createOutputData(configResponse: ConfigResponse?): Data {
         return Data.Builder()
-                .putBoolean(Constants.BATTERY_STAT, configResponse?.isBatteryStatRequired!!)
-                .putBoolean(Constants.NET_STAT, configResponse?.isNetUsageStatRequired!!)
+                .putBoolean(Constants.BATTERY_STAT, configResponse?.isBatteryStatRequired ?: false)
+                .putBoolean(Constants.NET_STAT, configResponse?.isNetUsageStatRequired ?: false)
                 .build()
     }
 }

@@ -30,11 +30,20 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GetConfigWorker.kt" pinned="false" current-in-tab="true">
+      <file leaf-file-name="GetConfigWorker.kt" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/somo/analyticsworkmanager/worker/GetConfigWorker.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="30" column="24" lean-forward="true" selection-start-line="30" selection-start-column="24" selection-end-line="30" selection-end-column="24" />
+            <state relative-caret-position="180">
+              <caret line="18" column="46" lean-forward="true" selection-start-line="18" selection-start-column="46" selection-end-line="18" selection-end-column="46" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="HomeViewModel.kt" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/somo/analyticsworkmanager/viewModel/HomeViewModel.kt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="457">
+              <caret line="46" column="74" selection-start-line="46" selection-start-column="74" selection-end-line="46" selection-end-column="74" />
             </state>
           </provider>
         </entry>
@@ -2413,6 +2422,7 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/app/src/main/java/com/somo/analyticsworkmanager/worker/GetConfigWorker.kt" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/somo/analyticsworkmanager/viewModel/HomeViewModel.kt" />
       </list>
     </option>
   </component>
@@ -2452,6 +2462,13 @@
               <item name="java" type="edd41e36:AndroidSourceTypeNode" />
               <item name="analyticsworkmanager" type="cbb59c9e:AndroidPsiDirectoryNode" />
               <item name="model" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="AnalyticsWorkManager" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
+              <item name="analyticsworkmanager" type="cbb59c9e:AndroidPsiDirectoryNode" />
+              <item name="viewModel" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="AnalyticsWorkManager" type="1abcf292:AndroidViewProjectNode" />
@@ -2659,8 +2676,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/somo/analyticsworkmanager/worker/GetConfigWorker.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="30" column="24" lean-forward="true" selection-start-line="30" selection-start-column="24" selection-end-line="30" selection-end-column="24" />
+        <state relative-caret-position="180">
+          <caret line="18" column="46" lean-forward="true" selection-start-line="18" selection-start-column="46" selection-end-line="18" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/somo/analyticsworkmanager/viewModel/HomeViewModel.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="457">
+          <caret line="46" column="74" selection-start-line="46" selection-start-column="74" selection-end-line="46" selection-end-column="74" />
         </state>
       </provider>
     </entry>

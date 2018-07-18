@@ -40,16 +40,14 @@ class HomeViewModel : ViewModel() {
                         ExistingWorkPolicy.REPLACE,
                         OneTimeWorkRequest.from(GetConfigWorker::class.java))
 
-
         val batteryStatBuilder = OneTimeWorkRequest.Builder(BatteryUsageWorker::class.java)
-
 
         val netStatBuilder = OneTimeWorkRequest.Builder(NetworkUsageWorker::class.java)
 
-        // Create constraint
+        // Create constraint for to specify battery level and network type
         val constraints = Constraints.Builder()
                 .setRequiresBatteryNotLow(true)
-                //.setRequiredNetworkType(NetworkType.)
+                .setRequiredNetworkType(NetworkType.CONNECTED)
                 .build()
 
         val reportBuilder = OneTimeWorkRequest.Builder(ReportToServerWorker::class.java)

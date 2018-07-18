@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">AnalyticsWorkManager</string>
+    <string name="workmanager_demo">WorkManager Demo</string>
+    <string name="please_grant_the_usage_access_and_phone_state_permissions_permissions_to_gather_the_app_analytics">Please grant the Usage Access and Phone State permissions permissions to gather the app analytics</string>
+    <string name="grant_permissions">Grant Permissions</string>
+    <string name="start">START</string>
 </resources>

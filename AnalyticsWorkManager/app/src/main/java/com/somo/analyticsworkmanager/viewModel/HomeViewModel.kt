@@ -19,8 +19,8 @@ import androidx.work.WorkStatus
 
 class HomeViewModel : ViewModel() {
 
-    private val workManager: WorkManager
-    val outputStatus: LiveData<List<WorkStatus>>
+    val workManager: WorkManager
+    var outputStatus: LiveData<List<WorkStatus>>
 
     companion object {
         private val TAG_OUTPUT = "OUTPUT"
@@ -28,14 +28,13 @@ class HomeViewModel : ViewModel() {
     }
 
     init {
-        workManager = WorkManager.getInstance()!!
+        workManager = WorkManager.getInstance()
         // This transformation makes sure that whenever the current work Id changes the WorkStatus
         // the UI is listening to changes
         outputStatus = workManager.getStatusesByTag(TAG_OUTPUT)
     }
 
     fun startWork() {
-
         val continuation = workManager
                 .beginUniqueWork(TAG_UNIQUE_WORK_NAME,
                         ExistingWorkPolicy.REPLACE,

@@ -16,8 +16,6 @@ import android.support.v4.content.ContextCompat
 import android.support.v7.app.AppCompatActivity
 
 import android.view.View
-import android.widget.Button
-import android.widget.ProgressBar
 
 import com.somo.analyticsworkmanager.R
 import com.somo.analyticsworkmanager.viewModel.HomeViewModel
@@ -27,7 +25,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class HomeActivity : AppCompatActivity() {
 
-    private var homeViewModel: HomeViewModel? = null
+    private lateinit var homeViewModel: HomeViewModel
 
     companion object {
         val REQUEST_READ_PHONE_STATE = 5352
@@ -39,12 +37,12 @@ class HomeActivity : AppCompatActivity() {
 
         homeViewModel = ViewModelProviders.of(this).get(HomeViewModel::class.java)
 
-        buttonPermission?.setOnClickListener { requestPermissions() }
+        buttonPermission.setOnClickListener { requestPermissions() }
 
-        buttonStart?.setOnClickListener { startWork() }
+        buttonStart.setOnClickListener { startWork() }
 
         // Show work status
-        homeViewModel?.outputStatus?.observe(this, Observer<List<WorkStatus>>{ listOfWorkStatuses ->
+        homeViewModel.outputStatus.observe(this, Observer<List<WorkStatus>>{ listOfWorkStatuses ->
 
             // Note that these next few lines grab a single WorkStatus if it exists
             // This code could be in a Transformation in the ViewModel; they are included here
@@ -70,13 +68,13 @@ class HomeActivity : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
-        progressBar?.visibility = View.INVISIBLE
+        progressBar.visibility = View.INVISIBLE
         if (arePermissionsGranted()) {
-            buttonStart?.isEnabled = true
-            buttonPermission?.isEnabled = false
+            buttonStart.isEnabled = true
+            buttonPermission.isEnabled = false
         } else {
-            buttonStart?.isEnabled = false
-            buttonPermission?.isEnabled = true
+            buttonStart.isEnabled = false
+            buttonPermission.isEnabled = true
         }
     }
 
@@ -104,8 +102,6 @@ class HomeActivity : AppCompatActivity() {
                 android.os.Process.myUid(), packageName)
         if (mode == AppOpsManager.MODE_ALLOWED) {
             val permissionCheck = ContextCompat.checkSelfPermission(this, Manifest.permission.READ_PHONE_STATE)
-
-
             return permissionCheck == PackageManager.PERMISSION_GRANTED
 
         } else {
@@ -117,17 +113,17 @@ class HomeActivity : AppCompatActivity() {
         // Start work
         // Get the ViewModel
         homeViewModel = ViewModelProviders.of(this).get(HomeViewModel::class.java)
-        homeViewModel?.startWork()
+        homeViewModel.startWork()
     }
 
     private fun showWorkInProgress() {
-        progressBar?.visibility = View.VISIBLE
-        buttonStart?.isEnabled = false
-        buttonPermission?.isEnabled = false
+        progressBar.visibility = View.VISIBLE
+        buttonStart.isEnabled = false
+        buttonPermission.isEnabled = false
     }
 
     private fun showWorkFinished() {
-        progressBar?.visibility = View.INVISIBLE
-        buttonStart?.isEnabled = true
+        progressBar.visibility = View.INVISIBLE
+        buttonStart.isEnabled = true
     }
 }

@@ -14,13 +14,12 @@ class ReportToServerWorker : Worker() {
             val batteryStat = inputData.getString(Constants.BATTERY_PERCENTAGE, "UNKNOWN")
             val netStat = inputData.getLong(Constants.NETWORK_USAGE, 0)
 
-            ThisApplication.thisApplication?.apiHelper?.reportConfig(Analytics(batteryStat, netStat))
+            ThisApplication.thisApplication.apiHelper.reportConfig(Analytics(batteryStat, netStat))
 
             return Worker.WorkerResult.SUCCESS
 
         } catch (e: IOException) {
             return Worker.WorkerResult.FAILURE
         }
-
     }
 }

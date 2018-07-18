@@ -15,13 +15,13 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 class ThisApplication : Application() {
 
-    private var remoteApi: RemoteApi? = null
+    private lateinit var remoteApi: RemoteApi
 
-    var apiHelper: ApiHelper? = null
+    lateinit var apiHelper: ApiHelper
         private set
 
     companion object {
-        var thisApplication: ThisApplication? = null
+        lateinit var thisApplication: ThisApplication
         private set
     }
 
@@ -54,6 +54,6 @@ class ThisApplication : Application() {
                 .build()
                 .create(RemoteApi::class.java)
 
-        apiHelper = ApiHelper(remoteApi!!)
+        apiHelper = ApiHelper(remoteApi)
     }
 }

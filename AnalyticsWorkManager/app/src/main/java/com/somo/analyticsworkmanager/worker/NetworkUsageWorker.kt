@@ -63,7 +63,7 @@ class NetworkUsageWorker : Worker() {
 
         var rxBytes = 0L
         val bucket = NetworkStats.Bucket()
-        while (networkStats!!.hasNextBucket()) {
+        while (networkStats.hasNextBucket()) {
             networkStats.getNextBucket(bucket)
             rxBytes += bucket.rxBytes
         }

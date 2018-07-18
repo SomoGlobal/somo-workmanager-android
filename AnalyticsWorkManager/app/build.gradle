@@ -32,8 +32,10 @@ dependencies {
     implementation 'com.android.support:appcompat-v7:27.1.1'
     implementation 'com.android.support.constraint:constraint-layout:1.1.2'
     implementation 'android.arch.work:work-runtime:1.0.0-alpha01'
-    /*implementation 'com.google.firebase:firebase-core:16.0.1'
-    implementation 'com.google.firebase:firebase-firestore:17.0.2'*/
+
+    apply plugin: 'com.android.application'
+    apply plugin: 'kotlin-android'
+    apply plugin: 'kotlin-android-extensions'
 
     // Retrofit for API requests
     implementation 'com.squareup.retrofit2:retrofit:2.3.0'
@@ -41,10 +43,6 @@ dependencies {
     implementation 'com.squareup.retrofit2:adapter-rxjava2:2.3.0'
     implementation 'com.squareup.okhttp3:okhttp:3.8.1'
     implementation 'com.squareup.okhttp3:logging-interceptor:3.8.1'
-
-    // Dependency injection
-    implementation 'com.google.dagger:dagger:2.12'
-    annotationProcessor 'com.google.dagger:dagger-compiler:2.12'
 
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'

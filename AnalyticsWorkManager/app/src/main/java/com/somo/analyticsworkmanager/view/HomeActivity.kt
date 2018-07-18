@@ -23,13 +23,15 @@ import com.somo.analyticsworkmanager.R
 import com.somo.analyticsworkmanager.viewModel.HomeViewModel
 
 import androidx.work.WorkStatus
+import kotlinx.android.synthetic.main.activity_main.*
 
 class HomeActivity : AppCompatActivity() {
 
     private var homeViewModel: HomeViewModel? = null
-    private var progressBar: ProgressBar? = null
-    private var grantPermission: Button? = null
-    private var startButton: Button? = null
+
+    companion object {
+        val REQUEST_READ_PHONE_STATE = 5352
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,16 +39,12 @@ class HomeActivity : AppCompatActivity() {
 
         homeViewModel = ViewModelProviders.of(this).get(HomeViewModel::class.java)
 
-        grantPermission = findViewById(R.id.button_grant_permission)
-        startButton = findViewById(R.id.button_start)
-        progressBar = findViewById(R.id.progress_bar)
+        buttonPermission?.setOnClickListener { requestPermissions() }
 
-        grantPermission!!.setOnClickListener { requestPermissions() }
-
-        startButton!!.setOnClickListener { startWork() }
+        buttonStart?.setOnClickListener { startWork() }
 
         // Show work status
-        homeViewModel!!.outputStatus.observe(this, Observer<List<WorkStatus>>{ listOfWorkStatuses ->
+        homeViewModel?.outputStatus?.observe(this, Observer<List<WorkStatus>>{ listOfWorkStatuses ->
 
             // Note that these next few lines grab a single WorkStatus if it exists
             // This code could be in a Transformation in the ViewModel; they are included here
@@ -72,13 +70,13 @@ class HomeActivity : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
-        progressBar!!.visibility = View.INVISIBLE
+        progressBar?.visibility = View.INVISIBLE
         if (arePermissionsGranted()) {
-            startButton!!.isEnabled = true
-            grantPermission!!.isEnabled = false
+            buttonStart?.isEnabled = true
+            buttonPermission?.isEnabled = false
         } else {
-            startButton!!.isEnabled = false
-            grantPermission!!.isEnabled = true
+            buttonStart?.isEnabled = false
+            buttonPermission?.isEnabled = true
         }
     }
 
@@ -119,24 +117,17 @@ class HomeActivity : AppCompatActivity() {
         // Start work
         // Get the ViewModel
         homeViewModel = ViewModelProviders.of(this).get(HomeViewModel::class.java)
-        homeViewModel!!.startWork()
+        homeViewModel?.startWork()
     }
 
     private fun showWorkInProgress() {
-        progressBar!!.visibility = View.VISIBLE
-
-        startButton!!.isEnabled = false
-        grantPermission!!.isEnabled = false
+        progressBar?.visibility = View.VISIBLE
+        buttonStart?.isEnabled = false
+        buttonPermission?.isEnabled = false
     }
 
     private fun showWorkFinished() {
-        progressBar!!.visibility = View.INVISIBLE
-        startButton!!.isEnabled = true
-    }
-
-    companion object {
-
-        val TAG = HomeActivity::class.java.simpleName
-        val REQUEST_READ_PHONE_STATE = 5352
+        progressBar?.visibility = View.INVISIBLE
+        buttonStart?.isEnabled = true
     }
 }

@@ -28,7 +28,7 @@ class HomeViewModel : ViewModel() {
     }
 
     init {
-        workManager = WorkManager.getInstance()
+        workManager = WorkManager.getInstance()!!
         // This transformation makes sure that whenever the current work Id changes the WorkStatus
         // the UI is listening to changes
         outputStatus = workManager.getStatusesByTag(TAG_OUTPUT)
@@ -50,10 +50,12 @@ class HomeViewModel : ViewModel() {
         // Create constraint
         val constraints = Constraints.Builder()
                 .setRequiresBatteryNotLow(true)
-                .setRequiredNetworkType(NetworkType.CONNECTED)
+                //.setRequiredNetworkType(NetworkType.)
                 .build()
 
-        val reportBuilder = OneTimeWorkRequest.Builder(ReportToServerWorker::class.java).addTag(TAG_OUTPUT).setConstraints(constraints)
+        val reportBuilder = OneTimeWorkRequest.Builder(ReportToServerWorker::class.java)
+                .addTag(TAG_OUTPUT)
+                .setConstraints(constraints)
 
         continuation
                 .then(batteryStatBuilder.build(), netStatBuilder.build())

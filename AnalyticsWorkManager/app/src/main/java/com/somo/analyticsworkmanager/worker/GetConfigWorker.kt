@@ -11,7 +11,7 @@ import androidx.work.Worker
 class GetConfigWorker : Worker() {
     override fun doWork(): Worker.WorkerResult {
         try {
-            val configResponse = ThisApplication.thisApplication!!.apiHelper!!.config
+            val configResponse = ThisApplication.thisApplication?.apiHelper?.config
             outputData = createOutputData(configResponse!!)
             return Worker.WorkerResult.SUCCESS
 

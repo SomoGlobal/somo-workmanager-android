@@ -11,10 +11,10 @@ import androidx.work.Worker
 class ReportToServerWorker : Worker() {
     override fun doWork(): Worker.WorkerResult {
         try {
-            val netStat = inputData.getLong(Constants.NETWORK_USAGE, 0)
             val batteryStat = inputData.getString(Constants.BATTERY_PERCENTAGE, "UNKNOWN")
+            val netStat = inputData.getLong(Constants.NETWORK_USAGE, 0)
 
-            ThisApplication.thisApplication!!.apiHelper!!.reportConfig(Analytics(batteryStat, netStat))
+            ThisApplication.thisApplication?.apiHelper?.reportConfig(Analytics(batteryStat, netStat))
 
             return Worker.WorkerResult.SUCCESS
 

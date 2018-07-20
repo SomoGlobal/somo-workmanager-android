@@ -18,6 +18,9 @@ import okhttp3.Protocol
 import okhttp3.Response
 import okhttp3.ResponseBody
 
+/**
+ * A Mocked client to simulate some API responses from the server
+ */
 class MockClient(private val context: Context) : Interceptor {
 
     @Throws(IOException::class)
@@ -45,6 +48,9 @@ class MockClient(private val context: Context) : Interceptor {
     }
 
 
+    /**
+     * Reads JSON from the api_config_response.json file
+     */
     private fun readFromFile(): String {
         var ret = ""
 

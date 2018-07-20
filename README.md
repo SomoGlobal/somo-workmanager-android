@@ -3,4 +3,6 @@ AnalyticsWorkManager : Demo of WorkManager features in Android
 
 A sample app to demonstrate how WorkManager works in executing different Workers, in sequence and parallel along with chaining.
 
-<img src="https://ibb.co/hznwRy"/>
+GetConfigWorker - The app gets a config from the server(Mocked API) and checks for the required analytics needed
+BatteryStatWorker and NetworkUsageWorker - The app starts to gather different analytics in parallel, based on the server config.
+ReportToServerWorker - The merged result is then sent to the server.
